@@ -70,12 +70,21 @@ public class CommentryActivity extends AppCompatActivity {
                                                 String commentry = String.valueOf(  dsp.getValue());
 
                                                 String overs=String.valueOf(dsp.getKey());
+                                                try{
 
-                                                overs=overs.replace("o",".");
+                                                    if(overs.indexOf('o')!=-1){
+                                                        String[] parts =overs.split("o");
+                                                        String part1 = parts[0]; // 004
+                                                        String part2 = parts[1]; // 034556
+                                                        int part=Integer.parseInt(part1);
+                                                        overs= String.valueOf(part)+"."+part2;}}
+                                                catch(Exception e)
+                                                {}
                                                 Model2 fire = new Model2(overs,commentry);
                                                 Log.d("Commentry", String.valueOf(dsp.getValue()));
                                                 Log.d("overs", String.valueOf(dsp.getKey()));
                                                 Commentrylist.add(fire);
+
 
                                                 //populates result with current value os dspand adds it as an element to the arraylist
 
@@ -146,13 +155,18 @@ public class CommentryActivity extends AppCompatActivity {
                                                  String commentry = String.valueOf(  dsp.getValue());
 
                                                  String overs=String.valueOf(dsp.getKey());
-
-                                                 overs=overs.replace("o",".");
+                                                 try{
+                                                     if(overs.indexOf('o')!=-1){
+                                                         String[] parts =overs.split("o");
+                                                         String part1 = parts[0]; // 004
+                                                         String part2 = parts[1]; // 034556
+                                                         int part=Integer.parseInt(part1);
+                                                         overs= String.valueOf(part)+"."+part2;}}
+                                                 catch(Exception e){}
                                                  Model3 fire = new Model3(overs,commentry);
                                                  Log.d("Commentry1", String.valueOf(dsp.getValue()));
                                                  Log.d("overs1", String.valueOf(dsp.getKey()));
                                                  Commentrylist1.add(fire);
-
                                                  //populates result with current value os dspand adds it as an element to the arraylist
 
                                              }
